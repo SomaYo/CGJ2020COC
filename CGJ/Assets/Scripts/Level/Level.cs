@@ -23,19 +23,24 @@ namespace Level
         void Start()
         {
             PlacementList = new List<Placement>(Placements.GetComponentsInChildren<Placement>());
+            foreach (var p in PlacementList)
+            {
+                p.SetPlayer(Player);
+                p.SetMode(Placement.ModeStuff);
+            }
 
             Game.Get().LevelFsm.GetState(Game.LevelStateOpen).OnStateInEvent.AddListener(() =>
             {
                 foreach (var placement in PlacementList)
                 {
-                    placement.SetMode(Placement.ModeGhost);
+                    placement.SetMode(Placement.ModeStuff);
                 }
             });
             Game.Get().LevelFsm.GetState(Game.LevelStateClose).OnStateInEvent.AddListener(() =>
             {
                 foreach (var placement in PlacementList)
                 {
-                    placement.SetMode(Placement.ModeStuff);
+                    placement.SetMode(Placement.ModeGhost);
                 }
             });
 
@@ -46,7 +51,7 @@ namespace Level
         void Update()
         {
             // TODO: remove test code
-            if (Input.GetKeyUp(KeyCode.F))
+            if (Input.GetKeyUp(KeyCode.LeftControl))
             {
                 if (Game.Get().LevelFsm.GetState().Name.Equals(Game.LevelStateOpen))
                 {

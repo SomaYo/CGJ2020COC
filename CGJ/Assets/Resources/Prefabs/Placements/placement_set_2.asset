@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: "\u7535\u89C6\u673A"
   HasGhost: 1
   GhostMoveSpeed: 0
-  GhostAlertRadius: 6
+  GhostAlertRadius: 4
   GhostDamage: 2
   StuffPrefab: {fileID: 8678108790873829524, guid: fcfcb82f9a658594babe2987fe3ef119,
     type: 3}
