@@ -44,8 +44,8 @@ public class Player : MonoBehaviour
         Vector3 beg = transform.position;
         //Vector3 down = new Vector3(0, 1, 0);
         Debug.DrawLine(beg, beg + front+down * 10, Color.red,1000);
-        bool isFurniture = Physics2D.Raycast(beg, front+down, 10, LayerMask.GetMask("Furniture"));
-        if (isFurniture)
+        bool isPlacement = Physics2D.Raycast(beg, front+down, 10, LayerMask.GetMask("Placement"));
+        if (isPlacement)
         {
             //家具破碎
         }
@@ -148,14 +148,14 @@ public class Player : MonoBehaviour
 
             }
         }
-        else if (collision.collider.tag == "Furniture")//碰到家具
+        else if (collision.collider.tag == "Placement")//碰到家具
         {
             isWall = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Furniture")//碰到家具
+        if (collision.collider.tag == "Placement")//碰到家具
         {
             isWall = false ;
         }

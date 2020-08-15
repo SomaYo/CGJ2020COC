@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _Instance = this;
+        Application.targetFrameRate=60;
 
         UI = GameObject.Find("UIManager").GetComponent<UIManager>();
 
@@ -20,17 +21,11 @@ public class Game : MonoBehaviour
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateLevel});
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateScore});
         
-        Debug.DrawRay(new Vector3(-2,-2,-2), Vector3.up, Color.green, 3);
     }
 
     public static Game Get()
     {
         return _Instance;
-    }
-
-    private void Update()
-    {
-        Debug.DrawLine(new Vector3(-1,-1,-1), Vector3.up*10);
     }
 
     public List<Level.Level> LevelPrefabList;

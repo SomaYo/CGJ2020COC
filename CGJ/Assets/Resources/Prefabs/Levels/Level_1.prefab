@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 625397182777211387}
   - component: {fileID: 4672236727798939413}
   - component: {fileID: 8644930607615426044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4315098392145315075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,6 +187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ece54e751941934a9eb3bd54a1a091a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 3
+  climbSpeed: 3
+  Hp: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!212 &7178282825500590541
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -375,7 +381,7 @@ GameObject:
   - component: {fileID: 8866692109881466498}
   - component: {fileID: 9026462074556204176}
   - component: {fileID: 671014437576405994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +489,7 @@ GameObject:
   - component: {fileID: 1216044032892925688}
   - component: {fileID: 5294911851882424282}
   - component: {fileID: 6602271052455378274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

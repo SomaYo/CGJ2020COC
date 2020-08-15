@@ -46,7 +46,7 @@ namespace Level
         void Update()
         {
             // TODO: remove test code
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.F))
             {
                 if (Game.Get().LevelFsm.GetState().Name.Equals(Game.LevelStateOpen))
                 {
