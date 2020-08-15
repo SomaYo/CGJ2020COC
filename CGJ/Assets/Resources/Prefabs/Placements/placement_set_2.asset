@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f46c5231514f9385af6ac1c081847e, type: 3}
+  m_Name: placement_set_2
+  m_EditorClassIdentifier: 
+  Name: "\u7535\u89C6\u673A"
+  HasGhost: 1
+  GhostMoveSpeed: 0
+  GhostAlertRadius: 6
+  GhostDamage: 2
+  StuffPrefab: {fileID: 8678108790873829524, guid: fcfcb82f9a658594babe2987fe3ef119,
+    type: 3}
+  GhostPrefab: {fileID: 5935430374259187353, guid: 7c1f2ffb74dc2e142bc76cabb657c4b3,
+    type: 3}
