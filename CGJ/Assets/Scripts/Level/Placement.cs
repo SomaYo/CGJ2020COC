@@ -23,9 +23,9 @@ namespace Level
             
             _aiDestSetter = GetComponent<AIDestinationSetter>();
             _aiPath = GetComponent<AIPath>();
-            
-            _stuff = Instantiate(PlacementSet.StuffPrefab, transform).GetComponent<Stuff>();
-            _ghost = Instantiate(PlacementSet.GhostPrefab, transform).GetComponent<Ghost>();
+
+            _stuff = GetComponentsInChildren<Stuff>().Length > 0 ? GetComponentInChildren<Stuff>() : Instantiate(PlacementSet.StuffPrefab, transform).GetComponent<Stuff>();
+            _ghost = GetComponentsInChildren<Ghost>().Length > 0 ? GetComponentInChildren<Ghost>() : Instantiate(PlacementSet.GhostPrefab, transform).GetComponent<Ghost>();
         }
 
         void Start()
