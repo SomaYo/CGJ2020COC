@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Placement
+  - Ghost
+  - Stuff
+  - Endpoint
   layers:
   - Default
   - TransparentFX
@@ -41,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: palyer
+    uniqueID: 1751734873
+    locked: 0
+  - name: dark
+    uniqueID: 4175017245
+    locked: 0
+  - name: plaer
+    uniqueID: 1559599909
     locked: 0

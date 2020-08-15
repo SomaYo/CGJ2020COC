@@ -17,7 +17,7 @@ MonoBehaviour:
   GhostMoveSpeed: 0
   GhostAlertRadius: 0
   GhostDamage: 0
-  StuffPrefab: {fileID: 8678108790873829524, guid: ef93d1ff40d5dde489fd72d8739ad472,
+  StuffPrefab: {fileID: -2314307766995834079, guid: ef93d1ff40d5dde489fd72d8739ad472,
     type: 3}
   GhostPrefab: {fileID: 5935430374259187353, guid: 97242a140aee42e4196965d3fb7aa85d,
     type: 3}

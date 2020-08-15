@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class Sight : MonoBehaviour
 {
+    public float lenght = 3;
     private bool right;
     private float i = 1;
+    private Collider2D coll;
 
     void Start()
     {
         right = true;
-
-        StartCoroutine(SightMove());
+        coll = transform.GetComponent<Collider2D>();
     }
 
     void Update()
     {
+        SightMove();
     }
 
-    IEnumerator SightMove()
+    void SightMove()
     {
-        yield return new WaitForSeconds(0.2f);
         Vector3 front = new Vector3(1, 0, 0);
         Vector3 beg = transform.position + new Vector3(0, 0, 0);
         Debug.DrawLine(beg, beg + front * 1.5f, Color.red, 1000);
@@ -30,19 +31,20 @@ public class Sight : MonoBehaviour
             i = 1;
             while (i < 6)
             {
-                if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                 {
-                    //破碎
+                    //破碎(此处判定家具破碎，下同)
+                    //Destroy(GetComponent<BoxCollider2D>());
                 }
 
                 front = new Vector3(1, i * 0.1f, 0);
-                if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                 {
                     //破碎
                 }
 
                 front = new Vector3(1, i * -0.1f, 0);
-                if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                 {
                     //破碎
                 }
@@ -58,19 +60,19 @@ public class Sight : MonoBehaviour
             i = 1;
             while (i < 6)
             {
-                if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                 {
                     //破碎
                 }
 
                 front = new Vector3(1, i * 0.1f, 0);
-                if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                 {
                     //破碎
                 }
 
                 front = new Vector3(1, i * -0.1f, 0);
-                if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                 {
                     //破碎
                 }
@@ -88,19 +90,19 @@ public class Sight : MonoBehaviour
                 i = 1;
                 while (i < 6)
                 {
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
 
                     front = new Vector3(1 - i * 0.1f, 1, 0);
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
 
                     front = new Vector3(1, 1 - i * 0.1f, 0);
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
@@ -114,19 +116,19 @@ public class Sight : MonoBehaviour
                 i = 1;
                 while (i < 6)
                 {
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
 
                     front = new Vector3(-1 + i * 0.1f, 1, 0);
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
 
                     front = new Vector3(-1, 1 - i * 0.1f, 0);
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
@@ -143,19 +145,19 @@ public class Sight : MonoBehaviour
                 i = 1;
                 while (i < 6)
                 {
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
 
                     front = new Vector3(1 - i * 0.1f, -1, 0);
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
 
                     front = new Vector3(1, i * 0.1f - 1, 0);
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
@@ -169,19 +171,19 @@ public class Sight : MonoBehaviour
                 i = 1;
                 while (i < 6)
                 {
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
 
                     front = new Vector3(-1 + i * 0.1f, -1, 0);
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
 
                     front = new Vector3(-1, i * 0.1f - 1, 0);
-                    if (Physics2D.Raycast(beg, front, 5f, LayerMask.GetMask("Ground")))
+                    if (Physics2D.Raycast(beg, front, lenght, LayerMask.GetMask("Placement")))
                     {
                         //破碎
                     }
@@ -191,6 +193,6 @@ public class Sight : MonoBehaviour
             }
         }
 
-        yield return null;
+
     }
 }
