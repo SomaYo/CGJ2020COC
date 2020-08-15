@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5935430374259187352}
   - component: {fileID: 3278492057306998019}
   - component: {fileID: 5581661810818903882}
-  - component: {fileID: 5935430374259187353}
+  - component: {fileID: -2571489505894216493}
   m_Layer: 0
-  m_Name: ghost_1
+  m_Name: ghost_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9e69b40aac10aba42adc5e3b1bfca59e, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 1c241af4a43d51743a22f8d7c7e7707d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5935430374259187353
+--- !u!114 &-2571489505894216493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,6 +111,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5935430374259187351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8492c142f807ccc47b6b2d7f8562e6fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 73a28366565182b45ba4981cd77fb54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

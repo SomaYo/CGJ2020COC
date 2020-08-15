@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60f46c5231514f9385af6ac1c081847e, type: 3}
-  m_Name: placement_set_5
+  m_Name: kind-hezi
   m_EditorClassIdentifier: 
-  Name: "\u6C99\u6F0F"
-  HasGhost: 1
-  GhostMoveSpeed: 0
-  GhostAlertRadius: 0
-  GhostDamage: 0
-  StuffPrefab: {fileID: -2314307766995834079, guid: ef93d1ff40d5dde489fd72d8739ad472,
+  Name: "\u5584\u826F\u5FEB\u9012\u76D2"
+  HasGhost: 0
+  GhostMoveSpeed: 3
+  GhostAlertRadius: 6
+  GhostDamage: 1
+  StuffPrefab: {fileID: -5316185025899004960, guid: f13ee3a9c42499d42a7a002ac5d3bb7b,
     type: 3}
-  GhostPrefab: {fileID: 5935430374259187353, guid: 97242a140aee42e4196965d3fb7aa85d,
+  GhostPrefab: {fileID: 5935430374259187353, guid: 7c1f2ffb74dc2e142bc76cabb657c4b3,
     type: 3}

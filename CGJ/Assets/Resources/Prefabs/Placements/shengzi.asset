@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60f46c5231514f9385af6ac1c081847e, type: 3}
-  m_Name: placement_set_10
+  m_Name: shengzi
   m_EditorClassIdentifier: 
-  Name: "\u955C\u5B50"
+  Name: "\u4E0A\u540A\u7EF3"
   HasGhost: 1
   GhostMoveSpeed: 0
-  GhostAlertRadius: 0
-  GhostDamage: 0
-  StuffPrefab: {fileID: 8678108790873829524, guid: ac370bdfede6793458864cc92da9c5b4,
+  GhostAlertRadius: 4
+  GhostDamage: 9
+  StuffPrefab: {fileID: 8678108790873829524, guid: 5c8ad4e156878f641be962c6f210b7e9,
     type: 3}
-  GhostPrefab: {fileID: 5935430374259187353, guid: 607e83234b6c5a94b9b0579f951b19a7,
+  GhostPrefab: {fileID: 5935430374259187353, guid: b8a451a8524acd040a0192bd5977fdb6,
     type: 3}
