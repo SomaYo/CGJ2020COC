@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60f46c5231514f9385af6ac1c081847e, type: 3}
-  m_Name: placement_set_7
+  m_Name: placement_set_12
   m_EditorClassIdentifier: 
-  Name: "\u4E66\u684C"
+  Name: "\u6587\u5B57"
   HasGhost: 1
   GhostMoveSpeed: 0
   GhostAlertRadius: 0
   GhostDamage: 0
-  StuffPrefab: {fileID: 8678108790873829524, guid: b28bdf43f00e18344b5e774663891544,
-    type: 3}
-  GhostPrefab: {fileID: 5935430374259187353, guid: a31de448935a9d347a462abefbcefbdb,
-    type: 3}
+  StuffPrefab: {fileID: 0}
+  GhostPrefab: {fileID: 0}
