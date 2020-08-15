@@ -12,7 +12,7 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _Instance = this;
-        Application.targetFrameRate=60;
+        Application.targetFrameRate = 60;
 
         UI = GameObject.Find("UIManager").GetComponent<UIManager>();
 
@@ -20,7 +20,6 @@ public class Game : MonoBehaviour
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateMenu});
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateLevel});
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateScore});
-        
     }
 
     public static Game Get()
@@ -30,10 +29,8 @@ public class Game : MonoBehaviour
 
     public List<Level.Level> LevelPrefabList;
 
-    [HideInInspector]
-    public UIManager UI;
-    [HideInInspector]
-    public Level.Level Level;
+    [HideInInspector] public UIManager UI;
+    [HideInInspector] public Level.Level Level;
 
     public FSMLite GameFSM;
     public const string GameStateMenu = "GameMenu";
@@ -47,6 +44,9 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CurrentLevelIndex = 0;
+        
+        Debug.Log("level : " + CurrentLevelIndex);
         GameFSM.GetState(GameStateLevel).OnStateInEvent.AddListener(() =>
         {
             LevelFsm = new FSMLite();
@@ -54,9 +54,9 @@ public class Game : MonoBehaviour
             LevelFsm.RegisterState(new FSMLite.State() {Name = LevelStateClose});
             UI.SetLevelFSM(LevelFsm);
 
-            if (LevelPrefabList.Count > 0)
+            if (LevelPrefabList.Count > CurrentLevelIndex)
             {
-                var levelPrefab = LevelPrefabList.First();
+                var levelPrefab = LevelPrefabList[CurrentLevelIndex];
                 var levelGo = Instantiate(levelPrefab, transform);
                 if (!(levelGo is null))
                 {
@@ -73,7 +73,31 @@ public class Game : MonoBehaviour
         });
 
         UI.SetGameFSM(GameFSM);
-
+        
+        StartLevel();
         GameFSM.Start(GameStateMenu);
+    }
+
+    [HideInInspector] public int CurrentLevelIndex;
+
+    void StartLevel()
+    {
+    }
+
+    public bool StartNextLevel()
+    {
+        CurrentLevelIndex++;
+
+        if (LevelPrefabList.Count <= CurrentLevelIndex)
+        {
+            CurrentLevelIndex--;
+            return false;
+        }
+        else
+        {
+            GameFSM.SetState(GameStateScore);
+            GameFSM.SetState(GameStateLevel);
+            return true;
+        }
     }
 }

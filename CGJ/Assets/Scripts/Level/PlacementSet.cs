@@ -8,9 +8,9 @@ namespace Level
         public string Name;
 
         public bool HasGhost;
+        public bool BreakAble;
         public float GhostMoveSpeed; // 怪物移动速度
         public float GhostAlertRadius; //怪物警戒半径
-        public int GhostDamage; //怪物伤害
 
         public Stuff StuffPrefab;
         public Ghost GhostPrefab;
