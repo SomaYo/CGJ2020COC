@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5581661810818903882}
   - component: {fileID: 5935430374259187353}
   m_Layer: 0
-  m_Name: ghost_2
+  m_Name: ghost_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e69b40aac10aba42adc5e3b1bfca59e, type: 3}
-  m_Color: {r: 0.8117647, g: 0.6870607, b: 0.14901958, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
