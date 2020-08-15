@@ -34,14 +34,6 @@ public class UIManager : MonoBehaviour
         _scorePanel.gameObject.SetActive(false);
     }
 
-    //TODO: remove test code
-    public IEnumerator SimulateScore()
-    {
-        yield return new WaitForSeconds(2);
-        Game.Get().GameFSM.SetState(Game.GameStateScore);
-        yield return null;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -61,12 +53,10 @@ public class UIManager : MonoBehaviour
         _startGameButton.onClick.AddListener(() =>
         {
             Game.Get().GameFSM.SetState(Game.GameStateLevel);
-            StartCoroutine(SimulateScore());
         });
         _restartGameButton.onClick.AddListener(() =>
         {
             Game.Get().GameFSM.SetState(Game.GameStateLevel);
-            StartCoroutine(SimulateScore());
         });
     }
     
