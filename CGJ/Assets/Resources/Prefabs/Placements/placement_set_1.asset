@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: placement_set_1
   m_EditorClassIdentifier: 
   Name: "\u67DC\u5B50"
-  HasGhost: 0
+  HasGhost: 1
   GhostMoveSpeed: 2
   GhostAlertRadius: 4
   GhostDamage: 3
