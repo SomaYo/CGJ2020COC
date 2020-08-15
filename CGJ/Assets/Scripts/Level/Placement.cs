@@ -1,6 +1,7 @@
 ﻿using System;
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Level
 {
@@ -43,6 +44,7 @@ namespace Level
             {
                 case ModeStuff:
                     _stuff.SetActive(true);
+                    _stuff.transform.localPosition = Vector3.zero;
                     _ghost.SetActive(false);
                     _aiPath.maxSpeed = 0;
                     break;
@@ -50,6 +52,7 @@ namespace Level
                 case ModeGhost:
                     _stuff.SetActive(false);
                     _ghost.SetActive(true);
+                    _ghost.transform.localPosition = Vector3.zero;
                     if (_isPlayerInRange)
                     {
                         _aiPath.maxSpeed = PlacementSet.GhostMoveSpeed;
@@ -84,6 +87,18 @@ namespace Level
                 _isPlayerInRange = false;
                 _aiPath.maxSpeed = 0;
             }
+        }
+
+        public void Break()
+        {
+            var explodable = _stuff.gameObject.AddComponent<Explodable>();
+            var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
+            explodable.allowRuntimeFragmentation = true;
+            explodable.extraPoints = 10;
+            explodable.orderInLayer = 3;
+            explodable.explode();
+            
+            Destroy(gameObject, 2.0f);
         }
     }
 }
