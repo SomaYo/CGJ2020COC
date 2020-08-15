@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Placement
+  - Ghost
+  - Stuff
+  - Endpoint
   layers:
   - Default
   - TransparentFX
