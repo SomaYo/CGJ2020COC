@@ -130,6 +130,7 @@ namespace Level
                     explodable.extraPoints = 10;
                     explodable.orderInLayer = 3;
                     explodable.explode();
+                    Sounds.Get().PlayDestructionSound();
 
                     var fragments = explodable.fragments;
                     foreach (var f in fragments)

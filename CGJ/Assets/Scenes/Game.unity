@@ -1288,7 +1288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.040837, y: 2.0853062, z: -10}
+  m_LocalPosition: {x: -4.1, y: 2.33, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1477,6 +1477,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1287433480}
   - component: {fileID: 1287433481}
+  - component: {fileID: 1287433483}
+  - component: {fileID: 1287433482}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1528,6 +1530,126 @@ MonoBehaviour:
   - {fileID: 0}
   virtualCamera: {fileID: 1458145312}
   CurrentLevelIndex: 0
+--- !u!114 &1287433482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287433479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f3545f7e27dce4596cba3cb6242208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeEyesSound: {fileID: 8300000, guid: 0ec48cef54047cd429a9f92d5ad8ebf0, type: 3}
+  destructionSound: {fileID: 8300000, guid: 0cff46ed045d526459c6f2a6fa850367, type: 3}
+  startButtonSound: {fileID: 8300000, guid: 6a815ddb2afc2ee4683ed24b8ec2ebbc, type: 3}
+  switchWorldSound: {fileID: 8300000, guid: 30f3c2aebeea92942924c3727d2a73e4, type: 3}
+  deathSound: {fileID: 8300000, guid: dae5c52e21d4b504a8d4dfe58e4ec5bb, type: 3}
+  walkSounds:
+  - {fileID: 8300000, guid: e65782e88928ae14fb07c9cc7cc769e5, type: 3}
+  - {fileID: 8300000, guid: 42538977db8839d47bd7460cffc7249a, type: 3}
+  - {fileID: 8300000, guid: e6e6ec191811ed7449163d4100a8d597, type: 3}
+  - {fileID: 8300000, guid: 9cfeabc865dc7c54eb85e988f0e6d0a0, type: 3}
+  monsterDropSound: {fileID: 8300000, guid: e63a8ce3a3b025e4aaa6668196f54952, type: 3}
+  endLevelSound: {fileID: 8300000, guid: 61f698ef909eae04ba3114998624d68a, type: 3}
+--- !u!82 &1287433483
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287433479}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1327894931
 GameObject:
   m_ObjectHideFlags: 0
