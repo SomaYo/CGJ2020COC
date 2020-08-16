@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1398992957047478971}
   - component: {fileID: 1994228876501655715}
   m_Layer: 0
-  m_Name: keng 1
+  m_Name: dakeng
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,12 +72,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ab8fa68b37088d84095d1be5d0acacad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67849b8fcdf8ac7459398ef43bdf2eca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 12.4, y: 2.01}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
