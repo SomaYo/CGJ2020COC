@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60f46c5231514f9385af6ac1c081847e, type: 3}
-  m_Name: kind-hezi
+  m_Name: zhiwujia_floating
   m_EditorClassIdentifier: 
-  Name: "\u5584\u826F\u5FEB\u9012\u76D2"
-  HasGhost: 0
+  Name: "\u7F6E\u7269\u67B6_\u6389\u843D"
+  HasGhost: 1
   BreakAble: 1
-  IsFloating: 0
-  GhostMoveSpeed: 3
-  GhostAlertRadius: 6
-  StuffPrefab: {fileID: -5316185025899004960, guid: f13ee3a9c42499d42a7a002ac5d3bb7b,
+  IsFloating: 1
+  GhostMoveSpeed: 0
+  GhostAlertRadius: 4
+  StuffPrefab: {fileID: 8678108790873829524, guid: 76a5f2534dc4ada4586446febc6e91c7,
     type: 3}
-  GhostPrefab: {fileID: 5935430374259187353, guid: 7c1f2ffb74dc2e142bc76cabb657c4b3,
+  GhostPrefab: {fileID: 5935430374259187353, guid: b7bc0b5542e06f8478fa8ac0e3287a49,
     type: 3}

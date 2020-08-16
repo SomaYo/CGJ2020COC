@@ -106,7 +106,8 @@ public class Player : MonoBehaviour
                 front = new Vector3(-1, 0, 0);
                 Sight(front, down);
             }
-            Sounds.Get().PlayWalkSound();
+
+
         }
         else
         {
