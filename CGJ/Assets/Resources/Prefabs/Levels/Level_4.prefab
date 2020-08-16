@@ -8602,9 +8602,9 @@ PrefabInstance:
       objectReference: {fileID: 2402722454350047236}
     - target: {fileID: 4421174937708108076, guid: 6f771222b9c47e54a941ed21373aede5,
         type: 3}
-      propertyPath: cntmax
-      value: 180
-      objectReference: {fileID: 0}
+      propertyPath: wall2
+      value: 
+      objectReference: {fileID: 2470757919206014679}
     - target: {fileID: 4421174937708108076, guid: 6f771222b9c47e54a941ed21373aede5,
         type: 3}
       propertyPath: windowcurtain
@@ -8612,9 +8612,9 @@ PrefabInstance:
       objectReference: {fileID: 188188195161922998}
     - target: {fileID: 4421174937708108076, guid: 6f771222b9c47e54a941ed21373aede5,
         type: 3}
-      propertyPath: wall2
+      propertyPath: loli
       value: 
-      objectReference: {fileID: 2470757919206014679}
+      objectReference: {fileID: 8152855261055720773}
     - target: {fileID: 6070802905954628390, guid: 6f771222b9c47e54a941ed21373aede5,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -73,11 +73,11 @@ public class UIManager : MonoBehaviour
 
     void OnLevelStateCloseIn()
     {
-        _levelStateText.text = "Eye Closed!"; 
+       // _levelStateText.text = "Eye Closed!"; 
     }
     void OnLevelStateOpenIn()
     {
-        _levelStateText.text = "Eye Opened!"; 
+        //_levelStateText.text = "Eye Opened!"; 
     }
     
     // Update is called once per frame

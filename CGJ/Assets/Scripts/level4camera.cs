@@ -8,6 +8,7 @@ public class level4camera : MonoBehaviour
     public GameObject ncamera;
     public GameObject fakemenu;
     public GameObject wall2;
+    public GameObject loli;
     public bool start;
     public bool pause;
     public bool goon;
@@ -15,7 +16,6 @@ public class level4camera : MonoBehaviour
 
     public int cntmax;
     int cnt;
-    int itemp;
     GameObject mainCamera;
     public GameObject windowcurtain;
     Vector3 postionnow;
@@ -28,13 +28,12 @@ public class level4camera : MonoBehaviour
         ncamera = GameObject.Find("CM vcam1");
         mainCamera = GameObject.Find("Main Camera");
         cnt = 0;
-        itemp = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ncamera==null)
+        if (ncamera == null)
         {
             ncamera = GameObject.Find("CM vcam1");
         }
@@ -46,15 +45,24 @@ public class level4camera : MonoBehaviour
                 if (cnt <= cntmax)
                 {
                     float ftemp = cnt / 100.0f;
+                    if (ftemp > 0.12f)
+                    {
+                        ftemp = 0.12f;
+                    }
                     float x = UnityEngine.Random.Range(-ftemp, ftemp);
                     float y = UnityEngine.Random.Range(-ftemp, ftemp);
                     mainCamera.transform.position = new Vector3(x, y, 0) + postionnow;
                 }
                 else
                 {
-                    finish = true;
+                    foreach (Transform tran in loli.GetComponentsInChildren<Transform>())
+                    {//遍历当前物体及其所有子物体
+                        tran.gameObject.layer = 11;//更改物体的Layer层
+                        finish = true;
+                    }
                 }
             }
+
         }
         else if (start)
         {
@@ -70,7 +78,7 @@ public class level4camera : MonoBehaviour
                 fakemenu.SetActive(true);
                 fakemenu.GetComponent<BoxCollider2D>().enabled = false;
                 cnt++;
-                if (cnt>cntmax)
+                if (cnt > cntmax)
                 {
                     Time.timeScale = 1;
                     goon = true;
@@ -92,6 +100,4 @@ public class level4camera : MonoBehaviour
         }
         
     }
-
-
 }

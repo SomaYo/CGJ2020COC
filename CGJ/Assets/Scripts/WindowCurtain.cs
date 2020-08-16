@@ -79,7 +79,7 @@ public class WindowCurtain : MonoBehaviour
     {
         _Instance = this;
         _image = GetComponent<Image>();
-
+        MaskSize = 1;
     }
 #if !UNITY_EDITOR
     private void Awake()
@@ -102,6 +102,10 @@ public class WindowCurtain : MonoBehaviour
             if (MaskSize > 0)
                 MaskSize -= 0.001F;
         }
+        if (MaskSize<0)
+        {
+            MaskSize = 0;
+        }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -113,6 +117,7 @@ public class WindowCurtain : MonoBehaviour
             if (MaskSize > 0)
                 MaskSize -= 0.01F;
         }
+
         if (flagobject.finish)
         {
             MaskSize  -=0.1F;
