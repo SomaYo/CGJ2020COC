@@ -15,7 +15,7 @@ public class Game : MonoBehaviour
         _Instance = this;
         Application.targetFrameRate = 60;
 
-        DistortionMask = transform.Find("Distortion").gameObject;
+        DistortionMask = GameObject.Find("Distortion").gameObject;
         UI = GameObject.Find("UIManager").GetComponent<UIManager>();
         
         GameFSM = new FSMLite();

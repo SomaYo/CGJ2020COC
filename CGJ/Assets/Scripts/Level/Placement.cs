@@ -2,6 +2,7 @@
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = Unity.Mathematics.Random;
 
 namespace Level
 {
@@ -10,10 +11,10 @@ namespace Level
         public PlacementSet PlacementSet;
 
         private CircleCollider2D _alertCollider2D;
-        
+
         private AIDestinationSetter _aiDestSetter;
         private AIPath _aiPath;
-        
+
         private Stuff _stuff;
         private Ghost _ghost;
 
@@ -21,12 +22,14 @@ namespace Level
         {
             _alertCollider2D = transform.Find("AlertRange").GetComponent<CircleCollider2D>();
             _alertCollider2D.radius = PlacementSet.GhostAlertRadius;
-            
+
             _aiDestSetter = GetComponent<AIDestinationSetter>();
             _aiPath = GetComponent<AIPath>();
 
-            _stuff = GetComponentsInChildren<Stuff>().Length > 0 ? GetComponentInChildren<Stuff>() : Instantiate(PlacementSet.StuffPrefab, transform).GetComponent<Stuff>();
-            _ghost = GetComponentsInChildren<Ghost>().Length > 0 ? GetComponentInChildren<Ghost>() : Instantiate(PlacementSet.GhostPrefab, transform).GetComponent<Ghost>();
+            _stuff = GetComponentsInChildren<Stuff>().Length > 0 ? GetComponentInChildren<Stuff>() :
+                PlacementSet.StuffPrefab != null ? Instantiate(PlacementSet.StuffPrefab, transform).GetComponent<Stuff>() : null;
+            _ghost = GetComponentsInChildren<Ghost>().Length > 0 ? GetComponentInChildren<Ghost>() :
+                PlacementSet.GhostPrefab != null ? Instantiate(PlacementSet.GhostPrefab, transform).GetComponent<Ghost>() : null;
         }
 
         void Start()
@@ -43,31 +46,50 @@ namespace Level
             switch (_mode)
             {
                 case ModeStuff:
-                    _stuff.SetActive(true);
-                    _stuff.transform.localPosition = Vector3.zero;
-                    _ghost.SetActive(false);
+                    if (_stuff != null)
+                    {
+                        _stuff.SetActive(true);
+                        _stuff.transform.localPosition = Vector3.zero;
+                    }
+
+                    if (_ghost != null)
+                    {
+                        _ghost.SetActive(false);
+                    }
+
                     _aiPath.maxSpeed = 0;
                     break;
 
                 case ModeGhost:
-                    _stuff.SetActive(false);
-                    _ghost.SetActive(true);
-                    _ghost.transform.localPosition = Vector3.zero;
+                    if (_stuff != null)
+                    {
+                        _stuff.SetActive(false);
+                    }
+
+                    if (_ghost != null)
+                    {
+                        _ghost.SetActive(true);
+                        _ghost.transform.localPosition = Vector3.zero;
+                    }
+
                     if (_isPlayerInRange)
                     {
                         _aiPath.maxSpeed = PlacementSet.GhostMoveSpeed;
                     }
+
                     break;
             }
         }
 
         private Player _player;
+
         public void SetPlayer(Player player)
         {
             _aiDestSetter.target = player.transform;
         }
 
         private bool _isPlayerInRange;
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
@@ -93,19 +115,31 @@ namespace Level
         {
             return PlacementSet.BreakAble;
         }
-        
+
+        private Random _random = new Random(1);
+
         public void Break()
         {
             if (PlacementSet.BreakAble)
             {
-                var explodable = _stuff.gameObject.AddComponent<Explodable>();
-                var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
-                explodable.allowRuntimeFragmentation = true;
-                explodable.extraPoints = 10;
-                explodable.orderInLayer = 3;
-                explodable.explode();
-            
-                Destroy(gameObject, 2.0f);
+                if (_stuff != null)
+                {
+                    var explodable = _stuff.gameObject.AddComponent<Explodable>();
+                    var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
+                    explodable.allowRuntimeFragmentation = true;
+                    explodable.extraPoints = 10;
+                    explodable.orderInLayer = 3;
+                    explodable.explode();
+
+                    var fragments = explodable.fragments;
+                    foreach (var f in fragments)
+                    {
+                        Destroy(f.GetComponent<PolygonCollider2D>(), _random.NextFloat(1.0f, 2.5f));
+                        Destroy(f, 3f);
+                    }
+
+                    Destroy(gameObject, 2.0f);
+                }
             }
         }
     }
