@@ -30,10 +30,8 @@ namespace Level
                 PlacementSet.StuffPrefab != null ? Instantiate(PlacementSet.StuffPrefab, transform).GetComponent<Stuff>() : null;
             _ghost = GetComponentsInChildren<Ghost>().Length > 0 ? GetComponentInChildren<Ghost>() :
                 PlacementSet.GhostPrefab != null ? Instantiate(PlacementSet.GhostPrefab, transform).GetComponent<Ghost>() : null;
-        }
-
-        void Start()
-        {
+            
+            SetDropAble(!PlacementSet.IsFloating);
         }
 
         private int _mode;
@@ -109,6 +107,11 @@ namespace Level
                 _isPlayerInRange = false;
                 _aiPath.maxSpeed = 0;
             }
+        }
+
+        public void SetDropAble(bool flag)
+        {
+            GetComponent<Rigidbody2D>().gravityScale = flag ? 90 : 0;
         }
 
         public bool IsBreakAble()
