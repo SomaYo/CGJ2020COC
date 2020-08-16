@@ -130,6 +130,7 @@ namespace Level
                     var explodable = _stuff.gameObject.AddComponent<Explodable>();
                     var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
                     explodable.allowRuntimeFragmentation = true;
+                    explodable.fragmentLayer = "Breaks";
                     explodable.extraPoints = 10;
                     explodable.orderInLayer = 3;
                     explodable.explode();
