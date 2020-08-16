@@ -14,8 +14,9 @@ public class Game : MonoBehaviour
         _Instance = this;
         Application.targetFrameRate = 60;
 
+        DistortionMask = transform.Find("Distortion").gameObject;
         UI = GameObject.Find("UIManager").GetComponent<UIManager>();
-
+        
         GameFSM = new FSMLite();
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateMenu});
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateLevel});
@@ -32,6 +33,8 @@ public class Game : MonoBehaviour
     [HideInInspector] public UIManager UI;
     [HideInInspector] public Level.Level Level;
 
+    private GameObject DistortionMask;
+    
     public FSMLite GameFSM;
     public const string GameStateMenu = "GameMenu";
     public const string GameStateLevel = "GameLevel";
@@ -52,6 +55,15 @@ public class Game : MonoBehaviour
             LevelFsm = new FSMLite();
             LevelFsm.RegisterState(new FSMLite.State() {Name = LevelStateOpen});
             LevelFsm.RegisterState(new FSMLite.State() {Name = LevelStateClose});
+            LevelFsm.GetState(LevelStateOpen).OnStateInEvent.AddListener(() =>
+            {
+                DistortionMask.SetActive(false);
+            });
+            LevelFsm.GetState(LevelStateClose).OnStateInEvent.AddListener(() =>
+            {
+                DistortionMask.SetActive(true);
+            });
+            
             UI.SetLevelFSM(LevelFsm);
 
             if (LevelPrefabList.Count > CurrentLevelIndex)
