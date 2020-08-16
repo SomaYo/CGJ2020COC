@@ -66,10 +66,12 @@ namespace Level
             {
                 if (Game.Get().LevelFsm.GetState().Name.Equals(Game.LevelStateOpen))
                 {
-                    Game.Get().LevelFsm.SetState(Game.LevelStateClose);
+                    Player.Get().SwitchPlayerShow(isDark:true);
+                   Game.Get().LevelFsm.SetState(Game.LevelStateClose);
                 }
                 else
                 {
+                    Player.Get().SwitchPlayerShow(isDark: false);
                     Game.Get().LevelFsm.SetState(Game.LevelStateOpen);
                 }
             }

@@ -2,8 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerType
+{
+    WhitePlayer = 0,
+    DarkPlayer = 1,
+}
+
 public class Player : MonoBehaviour
 {
+    private static Player _Instance;
+
+    private void OnEnable()
+    {
+        _Instance = this;
+    }
+
+    public static Player Get()
+    {
+        return _Instance;
+    }
 
     public float moveSpeed = 3;
     public float climbSpeed = 3;
@@ -16,11 +33,18 @@ public class Player : MonoBehaviour
     private bool isWall;
     private float collisionRadius = 0.15f;
     private Collider2D coll;
+    public GameObject[] players = null;
+    public PlayerType curPlayerType = PlayerType.DarkPlayer;
+    private Animator[] animators = new Animator[2];
 
     void Start()
     {
         player = transform.GetComponent<Rigidbody2D>();
         coll = transform.GetComponent<Collider2D>();
+        for (int i = 0; i < players.Length; i++)
+        {
+            animators[i] = players[i].GetComponent<Animator>();
+        }
         groundLayer = 1 << 8;
         onWall = false;
         onGround = true;
@@ -59,9 +83,19 @@ public class Player : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         if (h != 0)
         {
+            foreach (var player in players)
+            {
+                if (h > 0)
+                {
+                    player.transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+                else if (h < 0)
+                {
+                    player.transform.eulerAngles = new Vector3(0, 180, 0);
+                }
+            }
+            animators[(int)curPlayerType].SetBool("isWalk",true);
             player.velocity = new Vector2(h * moveSpeed, player.velocity.y);
-            //翻转
-            GetComponent<SpriteRenderer>().flipX = h > 0 ? false : true;
             if(h>0)//往左看
             {
                 front = new Vector3(1, 0, 0);
@@ -72,9 +106,12 @@ public class Player : MonoBehaviour
                 front = new Vector3(-1, 0, 0);
                 Sight(front, down);
             }
+
+
         }
         else
         {
+            animators[(int)curPlayerType].SetBool("isWalk", false);
             SightMove();
         }
 
@@ -106,6 +143,7 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    animators[(int)curPlayerType].SetBool("isClimb", true);
                     onGround = false;
                     onWall = true;
                     player.velocity = new Vector2(player.velocity.x, climbSpeed);
@@ -125,10 +163,12 @@ public class Player : MonoBehaviour
         {
             if (isWall == true)
             {
+                animators[(int)curPlayerType].SetBool("isClimb", true);
                 player.velocity = new Vector2(player.velocity.x, climbSpeed);
             }
             else
             {
+                animators[(int)curPlayerType].SetBool("isClimb", false);
                 onGround = true;
                 onWall = false;
             }
@@ -136,6 +176,21 @@ public class Player : MonoBehaviour
 
     }
 
+    public void SwitchPlayerShow(bool isDark)
+    {
+        if (isDark)
+        {
+            players[(int)curPlayerType].SetActive(false);
+            curPlayerType = PlayerType.WhitePlayer;
+            players[(int)curPlayerType].SetActive(true);
+        }
+        else
+        {
+            players[(int)curPlayerType].SetActive(false);
+            curPlayerType = PlayerType.DarkPlayer;
+            players[(int)curPlayerType].SetActive(true);
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
