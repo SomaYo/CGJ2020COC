@@ -95,7 +95,10 @@ namespace Level
 
         public void SetPlayer(Player player)
         {
-            _aiDestSetter.target = player.transform;
+            if (_aiDestSetter != null)
+            {
+                _aiDestSetter.target = player.transform;
+            }
         }
 
         private bool _isPlayerInRange;
