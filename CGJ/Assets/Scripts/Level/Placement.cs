@@ -18,6 +18,18 @@ namespace Level
         private Stuff _stuff;
         private Ghost _ghost;
 
+       [Serializable]
+       private struct ShowAfterBreak
+        {
+            public bool UseCustomTransform;
+            public Vector3 ShowPosition;
+            public Quaternion ShowRotation;
+            public Transform ShowObject;
+        }
+
+       [SerializeField]
+        private ShowAfterBreak showAfterBreak;
+
         private void OnEnable()
         {
             _alertCollider2D = transform.Find("AlertRange").GetComponent<CircleCollider2D>();
@@ -30,10 +42,8 @@ namespace Level
                 PlacementSet.StuffPrefab != null ? Instantiate(PlacementSet.StuffPrefab, transform).GetComponent<Stuff>() : null;
             _ghost = GetComponentsInChildren<Ghost>().Length > 0 ? GetComponentInChildren<Ghost>() :
                 PlacementSet.GhostPrefab != null ? Instantiate(PlacementSet.GhostPrefab, transform).GetComponent<Ghost>() : null;
-        }
-
-        void Start()
-        {
+            
+            SetDropAble(!PlacementSet.IsFloating);
         }
 
         private int _mode;
@@ -111,6 +121,11 @@ namespace Level
             }
         }
 
+        public void SetDropAble(bool flag)
+        {
+            GetComponent<Rigidbody2D>().gravityScale = flag ? 90 : 0;
+        }
+
         public bool IsBreakAble()
         {
             return PlacementSet.BreakAble;
@@ -127,6 +142,7 @@ namespace Level
                     var explodable = _stuff.gameObject.AddComponent<Explodable>();
                     var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
                     explodable.allowRuntimeFragmentation = true;
+                    explodable.fragmentLayer = "Breaks";
                     explodable.extraPoints = 10;
                     explodable.orderInLayer = 3;
                     explodable.explode();
@@ -137,8 +153,20 @@ namespace Level
                     {
                         Destroy(f.GetComponent<PolygonCollider2D>(), _random.NextFloat(1.0f, 2.5f));
                         Destroy(f, 3f);
+                        Physics.IgnoreCollision(Player.Get().GetComponent<Collider>(),f.GetComponent<Collider>());
                     }
 
+                    if (showAfterBreak.ShowObject != null)
+                    {
+                        if (showAfterBreak.UseCustomTransform)
+                        {
+                            Instantiate(showAfterBreak.ShowObject, showAfterBreak.ShowPosition, showAfterBreak.ShowRotation);
+                        }
+                        else
+                        {
+                            Instantiate(showAfterBreak.ShowObject);
+                        }
+                    }
                     Destroy(gameObject, 2.0f);
                 }
             }
