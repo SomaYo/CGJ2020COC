@@ -161,14 +161,7 @@ namespace Level
 
                     if (showAfterBreak.ShowObject != null)
                     {
-                        if (showAfterBreak.UseCustomTransform)
-                        {
-                            Instantiate(showAfterBreak.ShowObject, showAfterBreak.ShowPosition, showAfterBreak.ShowRotation);
-                        }
-                        else
-                        {
-                            Instantiate(showAfterBreak.ShowObject);
-                        }
+                        showAfterBreak.ShowObject.gameObject.SetActive(true);
                     }
                     Destroy(gameObject, 2.0f);
                 }
