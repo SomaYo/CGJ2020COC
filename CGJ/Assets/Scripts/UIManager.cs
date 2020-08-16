@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _canvas = GetComponentInChildren<Canvas>();
+        _canvas = transform.Find("Canvas").GetComponent<Canvas>();
         _menuPanel = _canvas.transform.Find("Menu").GetComponent<RectTransform>();
         _startGameButton = _menuPanel.Find("StartGameButton").GetComponent<Button>();
 
