@@ -11,11 +11,11 @@ public class UIManager : MonoBehaviour
     private RectTransform _menuPanel;
     private RectTransform _levelPanel;
     private RectTransform _scorePanel;
-
     private Button _startGameButton;
     private Text _healthText;
     private Text _levelStateText;
     private Button _restartGameButton;
+    public GameObject ingameMenu;
 
     private void OnEnable()
     {
@@ -32,11 +32,6 @@ public class UIManager : MonoBehaviour
 
         _levelPanel.gameObject.SetActive(false);
         _scorePanel.gameObject.SetActive(false);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
     }
 
     public void SetGameFSM(FSMLite gameFSM)
@@ -85,5 +80,38 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (ingameMenu.activeSelf) OnPause();
+            else OnResume();
+        }
+    }
+
+    public void OnPause()
+    {
+        Time.timeScale = 0;
+        ingameMenu.SetActive(true);
+    }
+
+    public void OnResume()
+    {
+        Time.timeScale = 1f;
+        ingameMenu.SetActive(false);
+    }
+
+    public void OnRestart()
+    {
+        //重新加载此关
+        Game.Get().CurrentLevelIndex--;
+        Game.Get().StartNextLevel();
+        Time.timeScale = 1f;
+        ingameMenu.SetActive(false);
+    }
+    public void OnreturnTotitle()
+    {
+        //回标题
+        Game.Get().GameFSM.SetState(Game.GameStateMenu);
+        Time.timeScale = 1f;
+        ingameMenu.SetActive(false);
     }
 }

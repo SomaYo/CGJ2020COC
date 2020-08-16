@@ -17,7 +17,7 @@ public class Sight : MonoBehaviour
 
     void Update()
     {
-        SightMove();
+
         if (Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.RightArrow))
         {
             right = true;
@@ -26,6 +26,7 @@ public class Sight : MonoBehaviour
         {
             right = false;
         }
+        SightMove();
     }
 
     void SightMove()
