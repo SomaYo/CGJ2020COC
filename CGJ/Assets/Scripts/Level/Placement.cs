@@ -89,16 +89,24 @@ namespace Level
             }
         }
 
+        public bool IsBreakAble()
+        {
+            return PlacementSet.BreakAble;
+        }
+        
         public void Break()
         {
-            var explodable = _stuff.gameObject.AddComponent<Explodable>();
-            var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
-            explodable.allowRuntimeFragmentation = true;
-            explodable.extraPoints = 10;
-            explodable.orderInLayer = 3;
-            explodable.explode();
+            if (PlacementSet.BreakAble)
+            {
+                var explodable = _stuff.gameObject.AddComponent<Explodable>();
+                var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
+                explodable.allowRuntimeFragmentation = true;
+                explodable.extraPoints = 10;
+                explodable.orderInLayer = 3;
+                explodable.explode();
             
-            Destroy(gameObject, 2.0f);
+                Destroy(gameObject, 2.0f);
+            }
         }
     }
 }

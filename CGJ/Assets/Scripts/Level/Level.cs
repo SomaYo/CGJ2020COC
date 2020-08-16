@@ -22,6 +22,7 @@ namespace Level
             _placements = transform.Find("Placements").gameObject;
             _platform = transform.Find("Platforms").gameObject;
             Player = GetComponentInChildren<Player>();
+            Game.Get().SetCameraFollowPlayer(Player.transform);
         }
 
         // Start is called before the first frame update
@@ -66,10 +67,12 @@ namespace Level
             {
                 if (Game.Get().LevelFsm.GetState().Name.Equals(Game.LevelStateOpen))
                 {
-                    Game.Get().LevelFsm.SetState(Game.LevelStateClose);
+                    Player.Get().SwitchPlayerShow(isDark:true);
+                   Game.Get().LevelFsm.SetState(Game.LevelStateClose);
                 }
                 else
                 {
+                    Player.Get().SwitchPlayerShow(isDark: false);
                     Game.Get().LevelFsm.SetState(Game.LevelStateOpen);
                 }
             }
