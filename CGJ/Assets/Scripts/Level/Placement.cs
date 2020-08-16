@@ -143,20 +143,21 @@ namespace Level
                 if (_stuff != null)
                 {
                     var explodable = _stuff.gameObject.AddComponent<Explodable>();
-                    var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
+                    _stuff.gameObject.AddComponent<BoxCollider2D>();
                     explodable.allowRuntimeFragmentation = true;
                     explodable.fragmentLayer = "Breaks";
                     explodable.extraPoints = 10;
                     explodable.orderInLayer = 3;
                     explodable.explode();
                     Sounds.Get().PlayDestructionSound();
+                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
                     var fragments = explodable.fragments;
                     foreach (var f in fragments)
                     {
+                        Physics.IgnoreCollision(Player.Get().GetComponent<Collider>(), f.GetComponent<Collider>());
                         Destroy(f.GetComponent<PolygonCollider2D>(), _random.NextFloat(1.0f, 2.5f));
                         Destroy(f, 3f);
-                        Physics.IgnoreCollision(Player.Get().GetComponent<Collider>(),f.GetComponent<Collider>());
                     }
 
                     if (showAfterBreak.ShowObject != null)
