@@ -63,16 +63,13 @@ namespace Level
             // TODO: remove test code
             if (Input.GetKeyUp(KeyCode.LeftControl))
             {
-                Sounds.Get().PlaySwitchWorldSound();
                 if (Game.Get().LevelFsm.GetState().Name.Equals(Game.LevelStateOpen))
                 {
-                    Sounds.Get().PlayCloseEyesSound();
                     Player.Get().SwitchPlayerShow(isDark:true);
                    Game.Get().LevelFsm.SetState(Game.LevelStateClose);
                 }
                 else
                 {
-                    Sounds.Get().StopCloseEyesSound();
                     Player.Get().SwitchPlayerShow(isDark: false);
                     Game.Get().LevelFsm.SetState(Game.LevelStateOpen);
                 }

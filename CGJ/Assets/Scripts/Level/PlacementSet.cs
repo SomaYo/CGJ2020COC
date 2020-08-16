@@ -9,6 +9,7 @@ namespace Level
 
         public bool HasGhost;
         public bool BreakAble;
+        public bool IsFloating;
         public float GhostMoveSpeed; // 怪物移动速度
         public float GhostAlertRadius; //怪物警戒半径
 

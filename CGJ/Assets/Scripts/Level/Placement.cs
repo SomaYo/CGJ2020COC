@@ -30,10 +30,8 @@ namespace Level
                 PlacementSet.StuffPrefab != null ? Instantiate(PlacementSet.StuffPrefab, transform).GetComponent<Stuff>() : null;
             _ghost = GetComponentsInChildren<Ghost>().Length > 0 ? GetComponentInChildren<Ghost>() :
                 PlacementSet.GhostPrefab != null ? Instantiate(PlacementSet.GhostPrefab, transform).GetComponent<Ghost>() : null;
-        }
-
-        void Start()
-        {
+            
+            SetDropAble(!PlacementSet.IsFloating);
         }
 
         private int _mode;
@@ -111,6 +109,11 @@ namespace Level
             }
         }
 
+        public void SetDropAble(bool flag)
+        {
+            GetComponent<Rigidbody2D>().gravityScale = flag ? 90 : 0;
+        }
+
         public bool IsBreakAble()
         {
             return PlacementSet.BreakAble;
@@ -127,10 +130,10 @@ namespace Level
                     var explodable = _stuff.gameObject.AddComponent<Explodable>();
                     var collider2d = _stuff.gameObject.AddComponent<BoxCollider2D>();
                     explodable.allowRuntimeFragmentation = true;
+                    explodable.fragmentLayer = "Breaks";
                     explodable.extraPoints = 10;
                     explodable.orderInLayer = 3;
                     explodable.explode();
-                    Sounds.Get().PlayDestructionSound();
 
                     var fragments = explodable.fragments;
                     foreach (var f in fragments)
