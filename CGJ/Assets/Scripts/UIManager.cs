@@ -13,12 +13,14 @@ public class UIManager : MonoBehaviour
     private RectTransform _scorePanel;
     private RectTransform _finishPanel;
     private Button _startGameButton;
+    private RectTransform _finishPanel;
     private Text _healthText;
     private Text _levelStateText;
     private Button _restartGameButton;
     public GameObject ingameMenu;
     public GameObject gamemanager;
-    public GameObject fakemenu;
+    public GameObject level4trigger;
+
     private void OnEnable()
     {
         _canvas = transform.Find("Canvas").GetComponent<Canvas>();
@@ -78,19 +80,19 @@ public class UIManager : MonoBehaviour
 
     void OnLevelStateCloseIn()
     {
-        _levelStateText.text = "Eye Closed!"; 
+       // _levelStateText.text = "Eye Closed!"; 
     }
     void OnLevelStateOpenIn()
     {
-        _levelStateText.text = "Eye Opened!"; 
+        //_levelStateText.text = "Eye Opened!"; 
     }
     
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            if (ingameMenu.activeSelf) OnPause();
+            if (!ingameMenu.activeSelf) OnPause();
             else OnResume();
         }
     }
@@ -100,7 +102,8 @@ public class UIManager : MonoBehaviour
         if (gamemanager.GetComponent<Game>().CurrentLevelIndex==3)
         {
             Time.timeScale = 0;
-            ingameMenu.SetActive(true);
+            level4trigger=GameObject.Find("cameratrigger");
+            level4trigger.GetComponent<level4camera>().pause = true;
         }
         else
         {

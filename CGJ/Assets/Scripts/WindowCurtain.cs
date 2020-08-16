@@ -49,6 +49,8 @@ public class WindowCurtain : MonoBehaviour
         return _Instance;
     }
 
+    public level4camera flagobject;
+
     private Image _image;
 
     public float MaskSize
@@ -77,7 +79,7 @@ public class WindowCurtain : MonoBehaviour
     {
         _Instance = this;
         _image = GetComponent<Image>();
-
+        MaskSize = 1;
     }
 #if !UNITY_EDITOR
     private void Awake()
@@ -95,6 +97,16 @@ public class WindowCurtain : MonoBehaviour
 #endif
     private void Update()
     {
+        if (flagobject.start&&!flagobject.pause)
+        {
+            if (MaskSize > 0)
+                MaskSize -= 0.001F;
+        }
+        if (MaskSize<0)
+        {
+            MaskSize = 0;
+        }
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             if (MaskSize < 1)
@@ -104,6 +116,11 @@ public class WindowCurtain : MonoBehaviour
         {
             if (MaskSize > 0)
                 MaskSize -= 0.01F;
+        }
+
+        if (flagobject.finish)
+        {
+            MaskSize  -=0.1F;
         }
     }
 }

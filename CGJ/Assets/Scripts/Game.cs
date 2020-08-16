@@ -17,12 +17,12 @@ public class Game : MonoBehaviour
 
         DistortionMask = GameObject.Find("Distortion").gameObject;
         UI = GameObject.Find("UIManager").GetComponent<UIManager>();
-        
+
         GameFSM = new FSMLite();
-        GameFSM.RegisterState(new FSMLite.State {Name = GameStateMenu});
-        GameFSM.RegisterState(new FSMLite.State {Name = GameStateLevel});
-        GameFSM.RegisterState(new FSMLite.State {Name = GameStateScore});
-        GameFSM.RegisterState(new FSMLite.State {Name = GameStateFinish});
+        GameFSM.RegisterState(new FSMLite.State { Name = GameStateMenu });
+        GameFSM.RegisterState(new FSMLite.State { Name = GameStateLevel });
+        GameFSM.RegisterState(new FSMLite.State { Name = GameStateScore });
+        GameFSM.RegisterState(new FSMLite.State { Name = GameStateFinish });
     }
 
     public static Game Get()
@@ -38,7 +38,7 @@ public class Game : MonoBehaviour
 
     [SerializeField] private CinemachineVirtualCamera virtualCamera = null;
     private GameObject DistortionMask;
-    
+
     public FSMLite GameFSM;
     public const string GameStateMenu = "GameMenu";
     public const string GameStateLevel = "GameLevel";
@@ -57,8 +57,8 @@ public class Game : MonoBehaviour
         GameFSM.GetState(GameStateLevel).OnStateInEvent.AddListener(() =>
         {
             LevelFsm = new FSMLite();
-            LevelFsm.RegisterState(new FSMLite.State() {Name = LevelStateOpen});
-            LevelFsm.RegisterState(new FSMLite.State() {Name = LevelStateClose});
+            LevelFsm.RegisterState(new FSMLite.State() { Name = LevelStateOpen });
+            LevelFsm.RegisterState(new FSMLite.State() { Name = LevelStateClose });
             LevelFsm.GetState(LevelStateOpen).OnStateInEvent.AddListener(() =>
             {
                 DistortionMask.SetActive(false);
@@ -67,7 +67,7 @@ public class Game : MonoBehaviour
             {
                 DistortionMask.SetActive(true);
             });
-            
+
             UI.SetLevelFSM(LevelFsm);
             LevelFsm.Start(LevelStateOpen);
 
@@ -91,7 +91,7 @@ public class Game : MonoBehaviour
         });
 
         UI.SetGameFSM(GameFSM);
-        
+
         GameFSM.Start(GameStateMenu);
     }
 
