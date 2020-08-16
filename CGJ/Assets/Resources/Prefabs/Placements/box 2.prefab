@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3278492057306998019}
   - component: {fileID: 5581661810818903882}
   - component: {fileID: 5935430374259187353}
+  - component: {fileID: 2015419410135455856}
   m_Layer: 0
   m_Name: box 2
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: b3a7198adf6123e41a83ec86702a95ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dbd9e060b341e26428687a000e687cb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 5935430374259187351}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 932cdac75d3e83145820a4bdffa73e0d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -114,3 +115,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8492c142f807ccc47b6b2d7f8562e6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &2015419410135455856
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935430374259187351}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0920e3be49c3d1c4fba730ee7ba59805, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

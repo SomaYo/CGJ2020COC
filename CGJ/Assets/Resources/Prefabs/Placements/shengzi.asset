@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u4E0A\u540A\u7EF3"
   HasGhost: 1
+  BreakAble: 1
   GhostMoveSpeed: 0
   GhostAlertRadius: 4
-  GhostDamage: 9
   StuffPrefab: {fileID: 8678108790873829524, guid: 5c8ad4e156878f641be962c6f210b7e9,
     type: 3}
   GhostPrefab: {fileID: 5935430374259187353, guid: b8a451a8524acd040a0192bd5977fdb6,

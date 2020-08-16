@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60f46c5231514f9385af6ac1c081847e, type: 3}
-  m_Name: guizi
+  m_Name: wenzi 8
   m_EditorClassIdentifier: 
-  Name: "\u67DC\u5B50"
-  HasGhost: 1
+  Name: "\u7F6E\u7269\u67B6"
+  HasGhost: 0
   BreakAble: 1
-  GhostMoveSpeed: 2
+  GhostMoveSpeed: 0
   GhostAlertRadius: 4
-  StuffPrefab: {fileID: -2571489505894216493, guid: 12b8ccfec317f3942a90255605f3cbab,
+  StuffPrefab: {fileID: 8678108790873829524, guid: 82b9e9b6c0b81754ca0dc967b823ecf0,
     type: 3}
-  GhostPrefab: {fileID: 5935430374259187353, guid: 619dc6ad1d9c8054bba83b82622fac50,
-    type: 3}
+  GhostPrefab: {fileID: 0}
