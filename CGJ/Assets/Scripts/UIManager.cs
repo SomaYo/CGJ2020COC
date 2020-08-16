@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour
         _startGameButton.onClick.AddListener(() =>
         {
             Game.Get().GameFSM.SetState(Game.GameStateLevel);
+            Sounds.Get().PlayStartButtonSound();
         });
         _restartGameButton.onClick.AddListener(() =>
         {
