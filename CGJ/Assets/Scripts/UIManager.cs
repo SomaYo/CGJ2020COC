@@ -34,11 +34,6 @@ public class UIManager : MonoBehaviour
         _scorePanel.gameObject.SetActive(false);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     public void SetGameFSM(FSMLite gameFSM)
     {
         gameFSM.GetState(Game.GameStateMenu).OnStateInEvent.AddListener(() => { _menuPanel.gameObject.SetActive(true); });
@@ -85,6 +80,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (ingameMenu.activeSelf) OnPause();
+            else OnResume();
+        }
     }
 
     public void OnPause()
@@ -102,13 +102,16 @@ public class UIManager : MonoBehaviour
     public void OnRestart()
     {
         //重新加载此关
-
+        Game.Get().CurrentLevelIndex--;
+        Game.Get().StartNextLevel();
         Time.timeScale = 1f;
+        ingameMenu.SetActive(false);
     }
     public void OnreturnTotitle()
     {
         //回标题
-
+        Game.Get().GameFSM.SetState(Game.GameStateMenu);
         Time.timeScale = 1f;
+        ingameMenu.SetActive(false);
     }
 }

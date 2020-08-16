@@ -76,10 +76,6 @@ namespace Level
                     Game.Get().LevelFsm.SetState(Game.LevelStateOpen);
                 }
             }
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                Game.Get().GameFSM.SetState(Game.GameStateScore);
-            }
         }
     }
 }

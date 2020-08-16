@@ -89,7 +89,6 @@ public class Game : MonoBehaviour
 
         UI.SetGameFSM(GameFSM);
         
-        StartLevel();
         GameFSM.Start(GameStateMenu);
     }
 
@@ -107,10 +106,6 @@ public class Game : MonoBehaviour
     }
 
     [HideInInspector] public int CurrentLevelIndex;
-
-    void StartLevel()
-    {
-    }
 
     public void SetCameraFollowPlayer(Transform trans)
     {
