@@ -25,6 +25,10 @@ public class Sounds : MonoBehaviour
 
     [SerializeField]
     private AudioClip closeEyesSound;
+    [SerializeField]
+    private float closeEyesSoundIntervalMin = 5.0F;
+    [SerializeField]
+    private float closeEyesSoundIntervalMax = 15.0F;
 
     private bool _playCloseEyesSound;
     private float _closeEyesSoundInterval;
@@ -34,7 +38,7 @@ public class Sounds : MonoBehaviour
     {
         _playCloseEyesSound = true;
         _closeEyesSoundDuration = 0.0F;
-        _closeEyesSoundInterval = Random.Range(5.0F, 15.0F);
+        _closeEyesSoundInterval = Random.Range(closeEyesSoundIntervalMin, closeEyesSoundIntervalMax);
     }
 
     public void StopCloseEyesSound()
@@ -53,7 +57,7 @@ public class Sounds : MonoBehaviour
                 if (_audioSource != null)
                     _audioSource.PlayOneShot(closeEyesSound);
                 _closeEyesSoundDuration = 0.0F;
-                _closeEyesSoundInterval = Random.Range(5.0F, 15.0F);
+                _closeEyesSoundInterval = Random.Range(closeEyesSoundIntervalMin, closeEyesSoundIntervalMax);
             }
         }
     }
