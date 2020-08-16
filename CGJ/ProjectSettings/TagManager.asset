@@ -8,14 +8,6 @@ TagManager:
   - Ghost
   - Stuff
   - Endpoint
-  - Missile
-  - ground
-  - Obstacle
-  - BombPickup
-  - Enemy
-  - ExplosionFX
-  - Bullet
-  - HealthBar
   layers:
   - Default
   - TransparentFX
@@ -29,7 +21,7 @@ TagManager:
   - Placement
   - Effects
   - Player
-  - Breaks
+  - 
   - 
   - 
   - 

@@ -44,7 +44,7 @@ Material:
     - Distortion_Speed: 0.074
     - _EnableExternalAlpha: 0
     m_Colors:
-    - Distortion_Position: {r: 0.2, g: 0.3, b: 0, a: 0}
+    - Distortion_Position: {r: 0.1, g: 0.1, b: 0, a: 0}
     - Distortion_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

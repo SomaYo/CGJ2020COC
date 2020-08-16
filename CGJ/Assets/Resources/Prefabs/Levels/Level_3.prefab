@@ -2735,9 +2735,9 @@ GameObject:
   - component: {fileID: 8887268013719435478}
   - component: {fileID: 9100473857741897338}
   - component: {fileID: 1024457520870438199}
-  m_Layer: 9
-  m_Name: p
-  m_TagString: Placement
+  m_Layer: 8
+  m_Name: Square (5)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6340,9 +6340,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  players:
-  - {fileID: 8152855261055720773}
-  - {fileID: 8931461371134015756}
+  players: []
   curPlayerType: 1
 --- !u!61 &2078022240462383857
 BoxCollider2D:
@@ -6357,7 +6355,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.057958603, y: 0.6004169}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6368,7 +6366,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8840828, y: 1.8592124}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &2535283884489722567
 Rigidbody2D:
