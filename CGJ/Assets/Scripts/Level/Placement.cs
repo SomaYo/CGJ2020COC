@@ -18,6 +18,18 @@ namespace Level
         private Stuff _stuff;
         private Ghost _ghost;
 
+       [Serializable]
+       private struct ShowAfterBreak
+        {
+            public bool UseCustomTransform;
+            public Vector3 ShowPosition;
+            public Quaternion ShowRotation;
+            public Transform ShowObject;
+        }
+
+       [SerializeField]
+        private ShowAfterBreak showAfterBreak;
+
         private void OnEnable()
         {
             _alertCollider2D = transform.Find("AlertRange").GetComponent<CircleCollider2D>();
@@ -139,6 +151,17 @@ namespace Level
                         Destroy(f, 3f);
                     }
 
+                    if (showAfterBreak.ShowObject != null)
+                    {
+                        if (showAfterBreak.UseCustomTransform)
+                        {
+                            Instantiate(showAfterBreak.ShowObject, showAfterBreak.ShowPosition, showAfterBreak.ShowRotation);
+                        }
+                        else
+                        {
+                            Instantiate(showAfterBreak.ShowObject);
+                        }
+                    }
                     Destroy(gameObject, 2.0f);
                 }
             }
