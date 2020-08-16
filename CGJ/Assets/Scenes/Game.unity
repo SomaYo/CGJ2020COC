@@ -562,6 +562,67 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!1 &366519627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366519628}
+  - component: {fileID: 366519629}
+  m_Layer: 0
+  m_Name: Level4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &366519628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366519627}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.40864, y: 11.67, z: -13.259715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1332026997}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &366519629
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366519627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.49272728, y: -3.8462672}
+      - {x: -29.28276, y: -4.290831}
+      - {x: -29.297457, y: -14.483057}
+      - {x: 20.245173, y: -15.027538}
+      - {x: 20.331583, y: -3.9622726}
 --- !u!1 &417113906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,11 +1321,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 1
-  orthographic size: 5.3
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1288,7 +1349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1, y: 2.33, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1515,13 +1576,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelPrefabList:
   - {fileID: 2745395576418031606, guid: 581e93737f6d77b4b98797830d4f4e5a, type: 3}
+  - {fileID: 2745395576418031606, guid: 60e26139a5c474c4fa5e1e7a145e91f3, type: 3}
+  - {fileID: 2745395576418031606, guid: eec98886b84321b419449db0c403470c, type: 3}
+  - {fileID: 2745395576418031606, guid: 69a60ec788d97c84d872282594e4e10b, type: 3}
   UI: {fileID: 0}
   Level: {fileID: 0}
   collisions:
   - {fileID: 1327894931}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 366519627}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1543,6 +1607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeEyesSound: {fileID: 8300000, guid: 0ec48cef54047cd429a9f92d5ad8ebf0, type: 3}
+  closeEyesSoundIntervalMin: 5
+  closeEyesSoundIntervalMax: 15
   destructionSound: {fileID: 8300000, guid: 0cff46ed045d526459c6f2a6fa850367, type: 3}
   startButtonSound: {fileID: 8300000, guid: 6a815ddb2afc2ee4683ed24b8ec2ebbc, type: 3}
   switchWorldSound: {fileID: 8300000, guid: 30f3c2aebeea92942924c3727d2a73e4, type: 3}
@@ -1552,6 +1618,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 42538977db8839d47bd7460cffc7249a, type: 3}
   - {fileID: 8300000, guid: e6e6ec191811ed7449163d4100a8d597, type: 3}
   - {fileID: 8300000, guid: 9cfeabc865dc7c54eb85e988f0e6d0a0, type: 3}
+  walkSoundInterval: 0.5
   monsterDropSound: {fileID: 8300000, guid: e63a8ce3a3b025e4aaa6668196f54952, type: 3}
   endLevelSound: {fileID: 8300000, guid: 61f698ef909eae04ba3114998624d68a, type: 3}
 --- !u!82 &1287433483
@@ -1739,6 +1806,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1327894933}
+  - {fileID: 366519628}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2738,6 +2806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingameMenu: {fileID: 1795306692}
+  gamemanager: {fileID: 1287433479}
+  fakemenu: {fileID: 0}
 --- !u!1 &1949688159
 GameObject:
   m_ObjectHideFlags: 0

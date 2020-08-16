@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f46c5231514f9385af6ac1c081847e, type: 3}
   m_Name: fakemenu
   m_EditorClassIdentifier: 
-  Name: "\u7F6E\u7269\u67B6"
+  Name: "\u5047\u83DC\u5355"
   HasGhost: 0
   BreakAble: 1
   GhostMoveSpeed: 0
