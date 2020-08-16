@@ -17,7 +17,8 @@ public class UIManager : MonoBehaviour
     private Button _restartGameButton;
     public GameObject ingameMenu;
     public GameObject gamemanager;
-    public GameObject fakemenu;
+    public GameObject level4trigger;
+
     private void OnEnable()
     {
         _canvas = transform.Find("Canvas").GetComponent<Canvas>();
@@ -82,9 +83,9 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            if (ingameMenu.activeSelf) OnPause();
+            if (!ingameMenu.activeSelf) OnPause();
             else OnResume();
         }
     }
@@ -94,7 +95,8 @@ public class UIManager : MonoBehaviour
         if (gamemanager.GetComponent<Game>().CurrentLevelIndex==3)
         {
             Time.timeScale = 0;
-            ingameMenu.SetActive(true);
+            level4trigger=GameObject.Find("cameratrigger");
+            level4trigger.GetComponent<level4camera>().pause = true;
         }
         else
         {

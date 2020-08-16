@@ -43,7 +43,7 @@
             {
                 fixed min = 0.5 - 0.5 * _MaskSize;
                 fixed max = 0.5 + 0.5 * _MaskSize;
-                if(i.uv.x > min && i.uv.x < max && i.uv.y > min && i.uv.y < max)
+                if(i.uv.x > min && i.uv.x < max && i.uv.y < max)
                     discard;
                 return fixed4(0.0, 0.0 ,0.0 ,0.0);
             }
