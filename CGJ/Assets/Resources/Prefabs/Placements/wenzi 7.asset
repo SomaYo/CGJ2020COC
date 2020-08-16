@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: wenzi 7
   m_EditorClassIdentifier: 
   Name: "\u7F6E\u7269\u67B6"
-  HasGhost: 0
+  HasGhost: 1
   BreakAble: 1
+  IsFloating: 0
   GhostMoveSpeed: 0
   GhostAlertRadius: 4
   StuffPrefab: {fileID: 8678108790873829524, guid: 2bfaefd9ed2cbf64f87beffe7bef983d,
     type: 3}
-  GhostPrefab: {fileID: 0}
+  GhostPrefab: {fileID: 6624744591923779888, guid: cb187323b7d39d3488d8640e3f58f8cd,
+    type: 3}

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f46c5231514f9385af6ac1c081847e, type: 3}
   m_Name: wenzi 9
   m_EditorClassIdentifier: 
-  Name: "\u7F6E\u7269\u67B6"
-  HasGhost: 0
+  Name: "\u6587\u5B57"
+  HasGhost: 1
   BreakAble: 1
+  IsFloating: 0
   GhostMoveSpeed: 0
   GhostAlertRadius: 4
   StuffPrefab: {fileID: 8678108790873829524, guid: 018be8dd8d66cee4db2bd8121d09af16,
