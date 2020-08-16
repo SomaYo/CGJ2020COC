@@ -16,7 +16,8 @@ public class UIManager : MonoBehaviour
     private Text _levelStateText;
     private Button _restartGameButton;
     public GameObject ingameMenu;
-
+    public GameObject gamemanager;
+    public GameObject fakemenu;
     private void OnEnable()
     {
         _canvas = transform.Find("Canvas").GetComponent<Canvas>();
@@ -90,8 +91,17 @@ public class UIManager : MonoBehaviour
 
     public void OnPause()
     {
-        Time.timeScale = 0;
-        ingameMenu.SetActive(true);
+        if (gamemanager.GetComponent<Game>().CurrentLevelIndex==3)
+        {
+            Time.timeScale = 0;
+            ingameMenu.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            ingameMenu.SetActive(true);
+        }
+        
     }
 
     public void OnResume()

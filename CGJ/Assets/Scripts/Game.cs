@@ -50,7 +50,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentLevelIndex = 0;
+        CurrentLevelIndex = 3;
         Debug.Log("level : " + CurrentLevelIndex);
         GameFSM.GetState(GameStateLevel).OnStateInEvent.AddListener(() =>
         {
@@ -128,5 +128,10 @@ public class Game : MonoBehaviour
             GameFSM.SetState(GameStateLevel);
             return true;
         }
+    }
+
+    public int getlevelnow()
+    {
+        return CurrentLevelIndex;
     }
 }
