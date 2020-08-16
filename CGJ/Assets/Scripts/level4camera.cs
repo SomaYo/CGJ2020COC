@@ -9,6 +9,7 @@ public class level4camera : MonoBehaviour
     public GameObject fakemenu;
     public GameObject wall2;
     public GameObject loli;
+    public GameObject goal;
     public bool start;
     public bool pause;
     public bool goon;
@@ -59,6 +60,8 @@ public class level4camera : MonoBehaviour
                     {//遍历当前物体及其所有子物体
                         tran.gameObject.layer = 11;//更改物体的Layer层
                         finish = true;
+                        wall2.SetActive(false);
+                        goal.SetActive(true);
                     }
                 }
             }
