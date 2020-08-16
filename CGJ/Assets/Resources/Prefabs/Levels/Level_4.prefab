@@ -5190,6 +5190,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  players:
+  - {fileID: 8152855261055720773}
+  - {fileID: 8931461371134015756}
+  curPlayerType: 1
 --- !u!61 &2078022240462383857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5541,7 +5545,7 @@ GameObject:
   - component: {fileID: 3218359434616513972}
   - component: {fileID: 2745395576418031606}
   m_Layer: 0
-  m_Name: Level_1
+  m_Name: Level_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

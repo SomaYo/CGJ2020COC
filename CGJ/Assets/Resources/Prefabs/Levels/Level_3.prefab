@@ -6318,7 +6318,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  players: []
+  players:
+  - {fileID: 8152855261055720773}
+  - {fileID: 8931461371134015756}
   curPlayerType: 1
 --- !u!61 &2078022240462383857
 BoxCollider2D:
