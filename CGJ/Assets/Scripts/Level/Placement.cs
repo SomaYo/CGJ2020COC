@@ -153,6 +153,7 @@ namespace Level
                     {
                         Destroy(f.GetComponent<PolygonCollider2D>(), _random.NextFloat(1.0f, 2.5f));
                         Destroy(f, 3f);
+                        Physics.IgnoreCollision(Player.Get().GetComponent<Collider>(),f.GetComponent<Collider>());
                     }
 
                     if (showAfterBreak.ShowObject != null)
