@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     private RectTransform _menuPanel;
     private RectTransform _levelPanel;
     private RectTransform _scorePanel;
+    private RectTransform _finishPanel;
     private Button _startGameButton;
     private Text _healthText;
     private Text _levelStateText;
@@ -31,6 +32,8 @@ public class UIManager : MonoBehaviour
         _scorePanel = _canvas.transform.Find("Score").GetComponent<RectTransform>();
         _restartGameButton = _scorePanel.Find("RestartGameButton").GetComponent<Button>();
 
+        _finishPanel = _canvas.transform.Find("Finish").GetComponent<RectTransform>();
+
         _levelPanel.gameObject.SetActive(false);
         _scorePanel.gameObject.SetActive(false);
     }
@@ -45,6 +48,9 @@ public class UIManager : MonoBehaviour
 
         gameFSM.GetState(Game.GameStateScore).OnStateInEvent.AddListener(() => { _scorePanel.gameObject.SetActive(true); });
         gameFSM.GetState(Game.GameStateScore).OnStateOutEvent.AddListener(() => { _scorePanel.gameObject.SetActive(false); });
+
+        gameFSM.GetState(Game.GameStateFinish).OnStateInEvent.AddListener(() => { _finishPanel.gameObject.SetActive(true); });
+        gameFSM.GetState(Game.GameStateFinish).OnStateOutEvent.AddListener(() => { _finishPanel.gameObject.SetActive(false); });
 
         _startGameButton.onClick.AddListener(() =>
         {

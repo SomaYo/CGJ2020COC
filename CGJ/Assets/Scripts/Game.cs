@@ -22,6 +22,7 @@ public class Game : MonoBehaviour
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateMenu});
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateLevel});
         GameFSM.RegisterState(new FSMLite.State {Name = GameStateScore});
+        GameFSM.RegisterState(new FSMLite.State {Name = GameStateFinish});
     }
 
     public static Game Get()
@@ -42,6 +43,7 @@ public class Game : MonoBehaviour
     public const string GameStateMenu = "GameMenu";
     public const string GameStateLevel = "GameLevel";
     public const string GameStateScore = "GameScore";
+    public const string GameStateFinish = "GameFinish";
 
     public FSMLite LevelFsm;
     public const string LevelStateOpen = "EyeOpen";
@@ -119,7 +121,8 @@ public class Game : MonoBehaviour
 
         if (LevelPrefabList.Count <= CurrentLevelIndex)
         {
-            CurrentLevelIndex--;
+            CurrentLevelIndex = 0;
+            GameFSM.SetState(GameStateFinish);
             return false;
         }
         else
