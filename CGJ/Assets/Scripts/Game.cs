@@ -50,7 +50,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentLevelIndex = 3;
+        CurrentLevelIndex = 0;
         Debug.Log("level : " + CurrentLevelIndex);
         GameFSM.GetState(GameStateLevel).OnStateInEvent.AddListener(() =>
         {

@@ -155,7 +155,6 @@ namespace Level
                     var fragments = explodable.fragments;
                     foreach (var f in fragments)
                     {
-                        Physics.IgnoreCollision(Player.Get().GetComponent<Collider>(), f.GetComponent<Collider>());
                         Destroy(f.GetComponent<PolygonCollider2D>(), _random.NextFloat(1.0f, 2.5f));
                         Destroy(f, 3f);
                     }
