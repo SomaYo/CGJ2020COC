@@ -55,8 +55,6 @@ namespace Level
                     _darkPlace.SetActive(true);
                 }
             });
-
-            Game.Get().LevelFsm.Start(Game.LevelStateOpen);
         }
 
         // Update is called once per frame

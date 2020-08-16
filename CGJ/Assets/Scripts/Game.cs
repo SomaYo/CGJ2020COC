@@ -67,6 +67,7 @@ public class Game : MonoBehaviour
             });
             
             UI.SetLevelFSM(LevelFsm);
+            LevelFsm.Start(LevelStateOpen);
 
             if (LevelPrefabList.Count > CurrentLevelIndex)
             {
