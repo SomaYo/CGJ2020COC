@@ -22,6 +22,7 @@ namespace Level
             _placements = transform.Find("Placements").gameObject;
             _platform = transform.Find("Platforms").gameObject;
             Player = GetComponentInChildren<Player>();
+            Game.Get().SetCameraFollowPlayer(Player.transform);
         }
 
         // Start is called before the first frame update

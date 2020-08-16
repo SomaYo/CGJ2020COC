@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class Game : MonoBehaviour
 {
@@ -32,7 +33,9 @@ public class Game : MonoBehaviour
 
     [HideInInspector] public UIManager UI;
     [HideInInspector] public Level.Level Level;
+    public GameObject[] collisions = new GameObject[10];
 
+    [SerializeField] private CinemachineVirtualCamera virtualCamera = null;
     private GameObject DistortionMask;
     
     public FSMLite GameFSM;
@@ -48,7 +51,6 @@ public class Game : MonoBehaviour
     void Start()
     {
         CurrentLevelIndex = 0;
-        
         Debug.Log("level : " + CurrentLevelIndex);
         GameFSM.GetState(GameStateLevel).OnStateInEvent.AddListener(() =>
         {
@@ -74,6 +76,7 @@ public class Game : MonoBehaviour
                 {
                     Level = levelGo.GetComponent<Level.Level>();
                 }
+                switchCameraLimit();
             }
         });
         GameFSM.GetState(GameStateLevel).OnStateOutEvent.AddListener(() =>
@@ -90,10 +93,28 @@ public class Game : MonoBehaviour
         GameFSM.Start(GameStateMenu);
     }
 
+    private void switchCameraLimit()
+    {
+        foreach (var col in collisions)
+        {
+            if (col != null)
+            {
+                col.SetActive(false);
+            }
+        }
+        collisions[CurrentLevelIndex].SetActive(true);
+        virtualCamera.GetComponent<CinemachineConfiner>().m_BoundingShape2D = collisions[CurrentLevelIndex].GetComponent<PolygonCollider2D>();
+    }
+
     [HideInInspector] public int CurrentLevelIndex;
 
     void StartLevel()
     {
+    }
+
+    public void SetCameraFollowPlayer(Transform trans)
+    {
+        virtualCamera.Follow = trans;
     }
 
     public bool StartNextLevel()
